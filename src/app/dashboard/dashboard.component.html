@@ -1,0 +1,57 @@
+ 
+    <div class="topnav">
+      <a class="active" href="#home">Home</a>  
+      <div class="topnav-right"> 
+        <a href="">{{getuser}}</a>
+      </div>
+    </div>
+    <br/><br/>
+    <div style="padding-left:16px">
+      <div class="container">
+        <div class="row" *ngIf="successmsg">
+           <div class="col-xs-12">
+              <p class="alert alert-success">
+                <strong>Deleted Successfully!</strong>
+              </p>
+           </div>
+       </div>
+    </div> 
+        <br/><br/>
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Start searching for a user">
+        <br/><br/>
+        <table class="table table-striped">
+           <thead>
+           <tr>
+               <th>Sr. No</th>
+               <th>Full Name</th>
+               <th>email</th>
+               <th>Username</th>
+               <th>Action</th>
+           </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let a of users | filter:searchText ">
+                <td>{{a.fname}}</td>
+                <td>{{a.lname}}</td>
+                <td>{{a.email}}</td>
+                <td>{{a.username}}</td>
+                <td>
+                  <button
+                  class="btn btn-outline-secondary"
+                  mwlConfirmationPopover
+                  [popoverTitle]="popoverTitle"
+                  [popoverMessage]="popoverMessage"
+                  placement="left"
+                  (confirm)="deleteRow(a)"
+                  (cancel)="cancelClicked = true"
+                  
+                >
+                Delete
+                </button></td>
+            </tr>
+        </tbody>
+       </table>   
+       
+      
+    </div>
+    
