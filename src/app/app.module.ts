@@ -18,6 +18,8 @@ import {AngularWebStorageModule } from 'angular-web-storage';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
+ 
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,7 @@ import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
   imports: [
     BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule,HttpClientModule,DataTablesModule,AngularWebStorageModule,Ng2SearchPipeModule, ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'danger', // set defaults here
-    }),
+    })
   ],
   providers: [AssignmentService],
   bootstrap: [AppComponent]
