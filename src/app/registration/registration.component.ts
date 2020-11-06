@@ -3,6 +3,8 @@ import {FormBuilder,FormGroup, Validators} from '@angular/forms';
 import {AssignmentService} from '../assignment.service';
 import {Router} from '@angular/router';
 
+import { ConfirmedValidator } from '../confirmed.validator';
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -34,7 +36,10 @@ createForm=function(){
     ])]],
     pswrepeat:[null,[Validators.compose([
       Validators.required,Validators.minLength(6)
-    ])]],
+    ])]]
+  }
+  , { 
+    validator: ConfirmedValidator('psw', 'pswrepeat')
   })
 }
 
@@ -48,7 +53,7 @@ createForm=function(){
   constructor(private fb:FormBuilder, private sr:AssignmentService, private r:Router) { 
     this.createForm();
   }
-
+   
   
 
 }
