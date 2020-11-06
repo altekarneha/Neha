@@ -1,8 +1,8 @@
  
     <div class="topnav">
-      <a class="active" href="#home">Home</a>  
+      <p class="active">Dashboard</p>  
       <div class="topnav-right"> 
-        <a href="">{{getuser}}</a>
+        <p>{{getuser}}</p>
       </div>
     </div>
     <br/><br/>
@@ -24,20 +24,20 @@
            <tr>
                <th>Sr. No</th>
                <th>Full Name</th>
-               <th>email</th>
+               <th>Email</th>
                <th>Username</th>
                <th>Action</th>
            </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let a of users | filter:searchText ">
-                <td>{{a.fname}}</td>
-                <td>{{a.lname}}</td>
+            <tr *ngFor="let a of users | filter:searchText let i=index ">
+                <td>{{i+1}}</td>
+                <td>{{a.fname}} {{a.lname}}</td>
                 <td>{{a.email}}</td>
                 <td>{{a.username}}</td>
                 <td>
                   <button
-                  class="btn btn-outline-secondary"
+                  class="btn  btn-danger"
                   mwlConfirmationPopover
                   [popoverTitle]="popoverTitle"
                   [popoverMessage]="popoverMessage"
